@@ -4,7 +4,6 @@ import {AuthService} from "../../service/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {GlobalSpinnerService} from "../../service/globalSpinner.service";
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

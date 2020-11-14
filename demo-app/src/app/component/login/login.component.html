@@ -1,14 +1,10 @@
 <div class="login" (keypress)="isEnter($event)">
   <mat-card>
     <mat-card-title class="login-title">Simple Client Manager</mat-card-title>
-    <mat-card-content>
-      <button *ngIf="!(authService.user$ | async)" class="login-form-button-input" mat-raised-button type="submit" (click)="authService.googleSignIn()"
+    <mat-card-content class="login-buttons-container">
+      <button *ngIf="!(authService.user$ | async)" class="login-form-button-input" mat-raised-button color="primary" type="submit" (click)="authService.googleSignIn()"
               [disabled]="loading" [ngClass]="{'invalid': loading}">
         Login
-      </button>
-      <button *ngIf="authService.user$ | async" class="login-form-button-input" mat-raised-button type="submit" (click)="authService.signOut()"
-              [disabled]="loading" [ngClass]="{'invalid': loading}">
-        Logout
       </button>
     </mat-card-content>
   </mat-card>

@@ -41,13 +41,11 @@ export class AuthService {
 
   async signOut() {
     await this.fireAuth.signOut();
-    return this.router.navigate(['/']);
+    return this.router.navigate(['/login']);
   }
 
   private updateUserData(user) {
     const userRef: AngularFirestoreDocument<User> = this.firestore.doc(`users/${user.uid}`);
-
-
     const date = Timestamp.now();
     const data = {
       uid: user.uid,
@@ -56,9 +54,7 @@ export class AuthService {
       photoURL: user.photoURL,
       lastLoginDate: date
     };
-
     return userRef.set(data, { merge: true });
-
   }
 
 }

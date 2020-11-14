@@ -1,5 +1,18 @@
 :host {
   display: flex;
   justify-content: center;
-  margin: 100px 0;
+  min-height: 100vh;
+  min-width: 100vh;
+  background: #303030;
+}
+
+.login-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.login {
+  padding-top: 30vh;
+  background: #303030;
 }
