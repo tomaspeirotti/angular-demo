@@ -78,4 +78,10 @@ export class ClientsComponent implements OnInit, AfterViewInit {
   delete(client: Client) {
     this.firestore.collection('client').doc(client.uid).delete();
   }
+
+  // @ts-ignore
+  getMaxDate(): Date {
+    // @ts-ignore
+    return new Date();
+  }
 }

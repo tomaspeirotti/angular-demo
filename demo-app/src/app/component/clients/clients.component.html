@@ -18,7 +18,7 @@
 
           <mat-form-field appearance="outline" class="clients-form-field">
             <mat-label>Date Of Birth</mat-label>
-            <input matInput formControlName="dateOfBirth" [matDatepicker]="picker">
+            <input matInput formControlName="dateOfBirth" [max]="getMaxDate()" [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
@@ -39,7 +39,7 @@
 
   <div class="clients-list">
 
-    <mat-table [dataSource]="clients" class="mat-elevation-z8 clients-table">
+    <mat-table *ngIf="clients.length > 0" [dataSource]="clients" class="mat-elevation-z8 clients-table">
 
       <!-- Name Column -->
       <ng-container matColumnDef="name">
