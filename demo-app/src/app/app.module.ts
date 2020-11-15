@@ -25,6 +25,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SidenavService} from "./service/sidenav.service";
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
+import {AvatarModule} from "ngx-avatar";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatProgressSpinnerModule,
     MatIconModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatListModule,
+    AvatarModule,
+    MatMenuModule
   ],
   providers: [AuthService, GlobalSpinnerService, SidenavService],
   bootstrap: [AppComponent]

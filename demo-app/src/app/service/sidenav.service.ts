@@ -22,7 +22,11 @@ export class SidenavService {
 
   public toggle(): void {
     if (this.sidenav) {
-      return this.sidenav.toggle();
+      this.sidenav.toggle();
     }
+  }
+
+  public isOpened() {
+    return this.sidenav.opened;
   }
 }
