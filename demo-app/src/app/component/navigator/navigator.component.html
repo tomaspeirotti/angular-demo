@@ -1,50 +1,53 @@
 <mat-drawer-container class="navigator-container" autosize>
 
-  <mat-toolbar class="navigator-toolbar">
-    <mat-toolbar-row>
-      <div *ngIf="sidenav.opened" (click)="sidenavService.toggle()" class="navigator-toolbar-arrow">
-        <mat-icon>keyboard_arrow_left</mat-icon>
-      </div>
-      <div *ngIf="!sidenav.opened" (click)="sidenavService.toggle()" class="navigator-toolbar-menu">
-        <mat-icon>list</mat-icon>
-      </div>
-      <div class="navigator-toolbar-module-name">
-<!--        <span>Selected Module Description</span>-->
-      </div>
-      <div *ngIf="user" class="navigator-toolbar-user-container" [matMenuTriggerFor]="menu">
-        <ngx-avatar class="navigator-toolbar-user-photo" size="40" [name]="user.displayName" [src]="user.photoURL"></ngx-avatar>
-        <span class="navigator-toolbar-user-displayName">{{user.displayName}}</span>
-        <mat-icon class="navigator-toolbar-user-options" aria-hidden="false" aria-label="expand">expand_more</mat-icon>
-      </div>
-      <mat-menu #menu="matMenu" class="navigator-toolbar-user-container-menu">
-        <button mat-menu-item (click)="authService.signOut()">
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Logout</span>
-        </button>
-      </mat-menu>
-    </mat-toolbar-row>
-  </mat-toolbar>
-
   <mat-drawer #sidenav class="navigator-sidenav" mode="side">
 
     <section class="navigator-sidenav-section">
       <img class="navigator-sidenav-section-logo" [src]="'./assets/icon/firebase-logo.png'"/>
     </section>
     <mat-list class="navigator-sidenav-list">
-      <mat-list-item class="navigator-sidenav-list-item">
-        <mat-icon class="navigator-sidenav-list-item-icon">person</mat-icon>
-        Clients
-      </mat-list-item>
-      <mat-list-item class="navigator-sidenav-list-item">
-        <mat-icon class="navigator-sidenav-list-item-icon">leaderboard</mat-icon>
-        Reporting
+      <mat-list-item *ngFor="let module of modules" class="navigator-sidenav-list-item" (click)="openModule(module)">
+        <mat-icon class="navigator-sidenav-list-item-icon">{{module.icon}}</mat-icon>
+        {{module.name}}
       </mat-list-item>
     </mat-list>
 
   </mat-drawer>
 
-  <div class="navigator-sidenav-content">
-    ONE MODULE OPENED
+  <div class="navigator-content">
+    <mat-toolbar class="navigator-toolbar">
+      <mat-toolbar-row>
+        <div *ngIf="sidenav.opened" (click)="sidenavService.toggle()" class="navigator-toolbar-arrow">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </div>
+        <div *ngIf="!sidenav.opened" (click)="sidenavService.toggle()" class="navigator-toolbar-menu">
+          <mat-icon>list</mat-icon>
+        </div>
+        <div class="navigator-toolbar-module-name">
+          <span *ngIf="selectedModule">{{ selectedModule.description }}</span>
+        </div>
+        <div *ngIf="currentUser" class="navigator-toolbar-user-container" [matMenuTriggerFor]="menu">
+          <ngx-avatar class="navigator-toolbar-user-photo" size="40" [name]="currentUser.displayName" [src]="currentUser.photoURL"></ngx-avatar>
+          <span class="navigator-toolbar-user-displayName">{{currentUser.displayName}}</span>
+          <mat-icon class="navigator-toolbar-user-options" aria-hidden="false" aria-label="expand">expand_more</mat-icon>
+        </div>
+        <mat-menu #menu="matMenu" class="navigator-toolbar-user-container-menu">
+          <button mat-menu-item (click)="authService.signOut()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+    <div class="navigator-content" [ngSwitch]="selectedModule.name">
+      <div *ngSwitchCase="'Clients'">
+        <app-clients></app-clients>
+      </div>
+      <div *ngSwitchCase="'Reporting'">
+        <app-reporting></app-reporting>
+      </div>
+    </div>
   </div>
 
 </mat-drawer-container>

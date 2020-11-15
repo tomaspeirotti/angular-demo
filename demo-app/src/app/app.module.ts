@@ -28,13 +28,20 @@ import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {AvatarModule} from "ngx-avatar";
 import {MatMenuModule} from "@angular/material/menu";
+import { ClientsComponent } from './component/clients/clients.component';
+import { ReportingComponent } from './component/reporting/reporting.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
     AppComponent,
     ProgressSpinnerComponent,
     LoginComponent,
-    NavigatorComponent
+    NavigatorComponent,
+    ClientsComponent,
+    ReportingComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +65,10 @@ import {MatMenuModule} from "@angular/material/menu";
     MatToolbarModule,
     MatListModule,
     AvatarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatTableModule
   ],
   providers: [AuthService, GlobalSpinnerService, SidenavService],
   bootstrap: [AppComponent]

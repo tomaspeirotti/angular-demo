@@ -7,9 +7,7 @@ export class SidenavService {
   private sidenav: MatSidenav;
 
   public setSidenav(sidenav: MatSidenav) {
-    if (!this.sidenav) {
-      this.sidenav = sidenav;
-    }
+    this.sidenav = sidenav;
   }
 
   public open() {

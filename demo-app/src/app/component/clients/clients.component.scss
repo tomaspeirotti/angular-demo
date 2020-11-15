@@ -1,0 +1,43 @@
+.clients {
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+
+  &-list {
+    margin: 10px;
+    overflow-y: scroll;
+    max-height: 68vh;
+  }
+
+  &-table {
+    overflow: auto;
+  }
+
+  &-form {
+    display: flex;
+    margin: 10px;
+
+    &-container {
+
+    }
+
+    &-actions {
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    &-field {
+      margin: 10px;
+    }
+
+    &-content {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.invalid {
+  background-color: grey;
+  border-color: black;
+  cursor: not-allowed;
+}
