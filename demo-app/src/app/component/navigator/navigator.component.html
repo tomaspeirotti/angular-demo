@@ -1,1 +1,19 @@
-<p>navigator works!</p>
+<mat-drawer-container class="navigator-container" autosize>
+
+  <mat-toolbar class="navigator-toolbar">
+    <mat-toolbar-row>
+      <span class="navigator-toolbar-spacer"></span>
+      <mat-icon class="navigator-toolbar-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
+      <mat-icon class="navigator-toolbar-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-drawer #sidenav class="navigator-sidenav" mode="side">
+    Screen 1
+  </mat-drawer>
+
+  <div class="navigator-sidenav-content">
+    Navigator background
+  </div>
+
+</mat-drawer-container>

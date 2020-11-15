@@ -2,8 +2,9 @@
   <mat-card>
     <mat-card-title class="login-title">Simple Client Manager</mat-card-title>
     <mat-card-content class="login-buttons-container">
-      <button *ngIf="!(authService.user$ | async)" class="login-form-button-input" mat-raised-button color="primary" type="submit" (click)="authService.googleSignIn()"
-              [disabled]="loading" [ngClass]="{'invalid': loading}">
+      <img class="login-google-icon" [src]="'./assets/icon/google-logo.png'" alt="icon"/>
+      <button class="login-button" mat-raised-button color="primary"
+              *ngIf="!(authService.user$ | async)" (click)="authService.googleSignIn()">
         Login
       </button>
     </mat-card-content>

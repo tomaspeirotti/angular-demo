@@ -8,7 +8,7 @@ import {GuestGuard} from "./service/guest.guard";
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent}, //, canActivate: [GuestGuard]
-  // {path: 'app', component: NavigatorComponent, canActivate: [AuthGuard]}
+  {path: 'app', component: NavigatorComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup} from "@angular/forms";
 import {AuthService} from "../../service/auth.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {GlobalSpinnerService} from "../../service/globalSpinner.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   constructor(public authService: AuthService,
               private formBuilder: FormBuilder,
               private snackBar: MatSnackBar,
-              private globalSpinner: GlobalSpinnerService) {
+              private globalSpinner: GlobalSpinnerService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -27,6 +29,11 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.globalSpinner.stopLoading();
+    this.authService.user$.subscribe(user => {
+      if (user) {
+        this.router.navigate(['/app']);
+      }
+    });
   }
 
   isEnter($event: any) {

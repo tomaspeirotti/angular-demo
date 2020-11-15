@@ -8,11 +8,22 @@
 
 .login-buttons-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
   margin-top: 35px;
 }
 
 .login {
   padding-top: 30vh;
   background: #303030;
+
+  &-button {
+
+  }
+
+  &-google-icon {
+    width: 60px;
+    align-self: center;
+    margin-bottom: 20px;
+  }
 }

@@ -20,6 +20,11 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import { NavigatorComponent } from './component/navigator/navigator.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {SidenavService} from "./service/sidenav.service";
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -30,6 +35,7 @@ import { NavigatorComponent } from './component/navigator/navigator.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     AppRoutingModule,
     ReactiveFormsModule,
@@ -43,9 +49,12 @@ import { NavigatorComponent } from './component/navigator/navigator.component';
     MatInputModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatToolbarModule
   ],
-  providers: [AuthService, GlobalSpinnerService],
+  providers: [AuthService, GlobalSpinnerService, SidenavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
