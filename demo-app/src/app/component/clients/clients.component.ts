@@ -8,6 +8,8 @@ import {formatDate} from "@angular/common";
 import firebase from "firebase/app";
 import Timestamp = firebase.firestore.Timestamp;
 import {ClientService} from '../../service/client.service';
+import {deathProb} from '../../../assets/static-data/data';
+
 
 @Component({
   selector: 'app-clients',
@@ -20,7 +22,7 @@ export class ClientsComponent implements OnInit, AfterViewInit {
   loading: boolean = false;
   clients: any[] = [];
   currentUserUID: string;
-  columns: string[] = ['name', 'dateOfBirth', 'age', 'actions'];
+  columns: string[] = ['name', 'dateOfBirth', 'age', 'probDeath', 'actions'];
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
@@ -78,5 +80,11 @@ export class ClientsComponent implements OnInit, AfterViewInit {
   getMaxDate(): Date {
     // @ts-ignore
     return new Date();
+  }
+
+  getProbDeath(age: number) {
+    const data = deathProb.find(prob => prob.age === age.toString());
+    const maleLifeExpectancy = data.maleLifeExpectancy;
+    return parseInt(maleLifeExpectancy) + age;
   }
 }

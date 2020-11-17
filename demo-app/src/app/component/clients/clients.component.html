@@ -59,6 +59,12 @@
         <mat-cell *matCellDef="let element"> {{element.age}} </mat-cell>
       </ng-container>
 
+      <!-- Probable Death Column -->
+      <ng-container matColumnDef="probDeath">
+        <mat-header-cell *matHeaderCellDef> Probable Death </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{getProbDeath(element.age)}} </mat-cell>
+      </ng-container>
+
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
         <mat-header-cell  *matHeaderCellDef > Actions </mat-header-cell>
