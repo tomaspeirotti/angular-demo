@@ -1,8 +1,9 @@
 <div class="reporting">
   <div class="reporting-kpi-row">
-    <app-kpi [title]="'Average Age'" [value]="avgAge"></app-kpi>
-    <app-kpi [title]="'Standard Deviation'" [value]="standardDeviation"></app-kpi>
+    <app-kpi *ngIf="avgAge" [title]="'Average Age'" [value]="avgAge"></app-kpi>
+    <app-kpi *ngIf="standardDeviation" [title]="'Standard Deviation'" [value]="standardDeviation"></app-kpi>
   </div>
   <app-chart *ngIf="clientsBirthdayByMonth.length > 0" [data]="clientsBirthdayByMonth" [chartTitle]="'Clients birthday by Month'"></app-chart>
+  <span class="reporting-no-data" *ngIf="!avgAge && clientsBirthdayByMonth.length == 0">Seems you don't have clients to make stats with...</span>
 <!--  <app-chart *ngIf="clientsByMonth.length > 0" [data]="clientsByMonth" [chartTitle]="'Clients by Month'"></app-chart>-->
 </div>
