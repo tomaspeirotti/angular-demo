@@ -1,0 +1,12 @@
+.reporting {
+  overflow-y: scroll;
+  height: 100vh;
+  padding-top: 20px;
+  padding-left: 20px;
+  &-kpi-row {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+    //margin-top: 10px;
+  }
+}

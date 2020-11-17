@@ -1,0 +1,20 @@
+<div class="chart-container" #containerRef>
+  <ngx-charts-bar-horizontal class="chart"
+                             [view]="[containerRef.offsetWidth - 45, 400]"
+                             [scheme]="colorScheme"
+                             [results]="data"
+                             [gradient]="gradient"
+                             [xAxis]="showXAxis"
+                             [yAxis]="showYAxis"
+                             [legend]="showLegend"
+                             [legendTitle]="chartTitle"
+                             [legendPosition]="legendPosition"
+                             [showXAxisLabel]="showXAxisLabel"
+                             [showYAxisLabel]="showYAxisLabel"
+                             [xAxisLabel]="xAxisLabel"
+                             [yAxisLabel]="yAxisLabel"
+                             (select)="onSelect($event)"
+                             (activate)="onActivate($event)"
+                             (deactivate)="onDeactivate($event)">
+  </ngx-charts-bar-horizontal>
+</div>
