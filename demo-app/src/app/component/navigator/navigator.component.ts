@@ -16,13 +16,13 @@ export class NavigatorComponent implements AfterViewInit {
 
   modules: Module[] = [
     {
-      selected: false,
+      selected: true,
       name: 'Clients',
       icon: 'person',
       description: 'Manage your Clients'
     },
     {
-      selected: true,
+      selected: false,
       name: 'Reporting',
       icon: 'leaderboard',
       description: 'Client statistics'
